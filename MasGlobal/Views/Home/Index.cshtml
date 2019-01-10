@@ -1,24 +1,39 @@
 ﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div id="app">
+        <div class='card'>
+            <div class='card-body'>
+                <div class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="inputPassword2" class="sr-only">Password</label>
+                        <input v-model="id" type="text" class="form-control" id="inputPassword2" placeholder="ID">
+                    </div>
+                    <button type="button" v-on:click="search" class="btn btn-primary mb-2">Search</button>
+                </div>
+
+                <div class='table-responsive'>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>CONTRACT TYPE</th>
+                                <th>ROLE NAME</th>
+                                <th>SALARY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="employee in employees" :key="employee.Id">
+                                <td>{{ employee.Id }}</td>
+                                <td>{{ employee.Name }}</td>
+                                <td>{{ employee.ContractTypeName }}</td>
+                                <td>{{ employee.RoleName }}</td>
+                                <td>{{ employee.Salary }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>
+@Scripts.Render("~/scripts/index.js")
